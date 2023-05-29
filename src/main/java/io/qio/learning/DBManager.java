@@ -1,9 +1,6 @@
 package io.qio.learning;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /***
     A class to manage database management system
@@ -29,9 +26,15 @@ class DBManager {
     }
 
     // Execute the sql query
-    public void execute(String sql) throws SQLException {
+    public Boolean execute(String sql) throws SQLException {
         Statement statement = connection.createStatement();
-        statement.execute(sql);
+        return statement.execute(sql);
+    }
+
+    public ResultSet executeQuery(String sql) throws SQLException {
+        Statement statement = connection.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        return resultSet;
     }
 
     // Ensure the closing of connection
