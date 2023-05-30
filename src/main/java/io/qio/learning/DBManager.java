@@ -5,7 +5,7 @@ import java.sql.*;
 /***
     A class to manage database management system
  */
-class DBManager {
+public class DBManager {
     private String url;
     private String username;
     private String password;

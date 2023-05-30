@@ -1,5 +1,8 @@
 package io.qio.learning;
 
+import io.qio.learning.bankingex.Account;
+import io.qio.learning.bankingex.AccountManager;
+
 import java.sql.ResultSet;
 import java.util.Random;
 
@@ -17,24 +20,9 @@ public class Main {
 
             // Create a DBManager instance
             DBManager dbManager = new DBManager(url, username, password);
-            dbManager.execute("Drop table if exists account");
-            // Create a table
-            dbManager.execute("Create table account (account_number int, balance numeric(10,2))");
+            AccountManager accountManager = new AccountManager();
 
-
-            // Insert Data
-            for (int i = 1; i <= 100l; i++) {
-                dbManager.execute("INSERT into account values(" + i + "," + random.nextInt(100000) + ")");
-            }
-
-            // Retrieve data
-            ResultSet resultSet = dbManager.executeQuery("Select * from account");
-
-            while (resultSet.next()) {
-                int accountNumber = resultSet.getInt(1);
-                double balance = resultSet.getDouble(2);
-                System.out.println(accountNumber + "---->" + balance);
-            }
+            accountManager.createAccount(new Account(1,100));
 
             // Disconnect from database system
             dbManager.disconnect();
