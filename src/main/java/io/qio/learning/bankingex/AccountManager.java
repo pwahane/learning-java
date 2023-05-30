@@ -8,6 +8,10 @@ public class AccountManager {
 
     private DBManager dbManager;
 
+    public AccountManager(DBManager dbManager){
+        this.dbManager = dbManager;
+    }
+
     public void createAccount(Account account){
 
     }

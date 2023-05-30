@@ -20,7 +20,7 @@ public class Main {
 
             // Create a DBManager instance
             DBManager dbManager = new DBManager(url, username, password);
-            AccountManager accountManager = new AccountManager();
+            AccountManager accountManager = new AccountManager(dbManager);
 
             accountManager.createAccount(new Account(1,100));
 
