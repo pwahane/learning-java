@@ -3,7 +3,6 @@ package io.qio.learning;
 import io.qio.learning.bankingex.Account;
 import io.qio.learning.bankingex.AccountManager;
 
-import java.sql.ResultSet;
 import java.util.Random;
 
 public class Main {

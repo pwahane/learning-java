@@ -37,6 +37,14 @@ public class DBManager {
         return resultSet;
     }
 
+    public PreparedStatement getPreparedStatement(String sql) throws SQLException {
+        return this.connection.prepareStatement(sql);
+    }
+
+    public int execute(PreparedStatement preparedStatement) throws SQLException {
+        return preparedStatement.executeUpdate();
+    }
+
     // Ensure the closing of connection
     @Override
     protected void finalize() throws Throwable {
